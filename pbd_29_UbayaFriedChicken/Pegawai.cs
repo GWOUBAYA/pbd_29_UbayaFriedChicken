@@ -195,9 +195,9 @@ namespace pbd_29_UbayaFriedChicken
             string sql = "drop user '" + p.Username + "'@'" + namaServer + "'";
             Koneksi.JalankanPerintahDML(sql);
         }
-        public static string GenerateKode()
+        public static string GenerateKode(Jabatan j)
         {
-            string sql = "select max(IdPegawai) from Pegawai ";
+            string sql = "select max(right(IdPegawai,3)) from Pegawai where IdJabatan = '" + j.IdJabatan + "'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             string hasilKode = "";
@@ -206,17 +206,14 @@ namespace pbd_29_UbayaFriedChicken
                 if (hasil.GetValue(0).ToString() != "")
                 {
                     int kodeTerbaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
-                    hasilKode = kodeTerbaru.ToString();
+                    hasilKode = j.IdJabatan + kodeTerbaru.ToString().PadLeft(3, '0');
                 }
                 else
                 {
-                    hasilKode = "1";
+                    hasilKode = j.IdJabatan + "001";
                 }
             }
-            else
-            {
-                hasilKode = "1";
-            }
+
             return hasilKode;
         }
 
