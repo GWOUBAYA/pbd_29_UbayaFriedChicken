@@ -58,7 +58,7 @@ namespace UbayaFriedChicken_Form
             dataGridViewData.Columns.Add("NamaProduk", "Nama Produk");
             dataGridViewData.Columns.Add("Harga", "Harga");
             dataGridViewData.Columns.Add("Jumlah", "Jumlah");
-            dataGridViewData.Columns.Add("IdReward", "Id Reward");
+
 
             dataGridViewData.Columns["IdNota"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["Tanggal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -71,7 +71,7 @@ namespace UbayaFriedChicken_Form
             dataGridViewData.Columns["NamaProduk"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["Harga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["Jumlah"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewData.Columns["IdReward"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
 
             //agar harga dan jumlah rata kanan
             dataGridViewData.Columns["Harga"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -97,12 +97,10 @@ namespace UbayaFriedChicken_Form
                 {
                     foreach(NotaJualDetil njd in n.ListNotaJualDetil)
                     {
-                        foreach (RewardNotaJual njr in n.ListRewardNotaJual)
-                        {
+                       
                             dataGridViewData.Rows.Add(n.IdNota, n.Tanggal, n.Pelanggan.IdPelanggan, n.Pelanggan.Nama, n.Pelanggan.Alamat,
-                                n.Pegawai.IdPegawai, n.Pegawai.Nama, njd.Produk.IdProduk, njd.Produk.Nama, njd.Harga, njd.Jumlah, njr.Reward.IdReward);
-                        }
-                    }
+                                n.Pegawai.IdPegawai, n.Pegawai.Nama, njd.Produk.IdProduk, njd.Produk.Nama, njd.Harga, njd.Jumlah);
+                                            }
                 }
             }
             else

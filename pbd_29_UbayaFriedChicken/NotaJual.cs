@@ -188,7 +188,7 @@ namespace pbd_29_UbayaFriedChicken
                 while (hasilData2.Read() == true)
                 {
                     //produk yang terjual
-                    List<Produk> listProduk = Produk.BacaData("pr.IdProduk", hasilData2.GetValue(0).ToString());
+                    List<Produk> listProduk = Produk.BacaData("p.IdProduk", hasilData2.GetValue(0).ToString());
 
                     //mendapatkan harga jual transaksi
                     int hrgJual = int.Parse(hasilData2.GetValue(2).ToString());
@@ -203,26 +203,26 @@ namespace pbd_29_UbayaFriedChicken
                     nota.TambahNotaJualDetil(listProduk[0], hrgJual, jumlahJual);
                 }
 
-                //query 3 : mendapatkan detil reward dari tiap nota jual
-                //perintah sql 3 : mendapatkan reward yang ada di nota (dari  tabel RewardNotaJual)
-                string sql3 = "select njr.IdReward, r.nama, r.jenis_barang, r.batas_minimal" +
-                    " from notajual as n inner join notajual_reward as njr on n.IdNota = njr.IdNota inner join reward as r on njr.IdReward =r.IdReward " +
-                    " where n.IdNota = '" + IdNota + "'";
+                ////query 3 : mendapatkan detil reward dari tiap nota jual
+                ////perintah sql 3 : mendapatkan reward yang ada di nota (dari  tabel RewardNotaJual)
+                //string sql3 = "select njr.IdReward, r.nama, r.barang, r.batas_minimal" +
+                //    " from notajual as n inner join notajual_reward as njr on n.IdNota = njr.IdNota inner join reward as r on njr.IdReward =r.IdReward " +
+                //    " where n.IdNota = '" + IdNota + "'";
 
-                //data reader 3 : memperoleh semua data reward nota di tabel notajual_reward
-                MySqlDataReader hasilData3 = Koneksi.JalankanPerintahQuery(sql3);
+                ////data reader 3 : memperoleh semua data reward nota di tabel notajual_reward
+                //MySqlDataReader hasilData3 = Koneksi.JalankanPerintahQuery(sql3);
 
-                while (hasilData3.Read() == true)
-                {
-                    //produk yang terjual
-                    List<Reward> listReward = Reward.BacaData("IdReward", hasilData3.GetValue(0).ToString());
+                //while (hasilData3.Read() == true)
+                //{
+                //    //produk yang terjual
+                //    List<Reward> listReward = Reward.BacaData("IdReward", hasilData3.GetValue(0).ToString());
 
-                    //create nobjek bertipe detilNotaJual
-                    RewardNotaJual detilNotaReward = new RewardNotaJual(listReward[0]);
+                //    //create nobjek bertipe detilNotaJual
+                //    RewardNotaJual detilNotaReward = new RewardNotaJual(listReward[0]);
 
-                    //simpan detil produk ke nota
-                    nota.TambahRewardNotaJual(listReward[0]);
-                }
+                //    //simpan detil produk ke nota
+                //    nota.TambahRewardNotaJual(listReward[0]);
+                //}
                 //simpan ke list
                 listHasilData.Add(nota);
             }
