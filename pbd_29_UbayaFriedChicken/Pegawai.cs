@@ -153,15 +153,10 @@ namespace pbd_29_UbayaFriedChicken
         }
         public static void BeriHakAkses(Pegawai p, string namaServer, string namaDatabase)
         {
-            if (p.Jabatan.IdJabatan == "J3")
+            if (p.Jabatan.IdJabatan == "J2")
             {
                 string sql2 = "grant create user on *.* to '" + p.Username + "'@'" + namaServer + "'";
                 Koneksi.JalankanPerintahDML(sql2);
-            }
-            else
-            {
-                string sql = "grant all privileges on " + namaDatabase + ".* to '" + p.Username + "'@'" + namaServer + "'";
-                Koneksi.JalankanPerintahDML(sql);
             }
         }
         public static void ManajemenUser(Pegawai p, string perintah)

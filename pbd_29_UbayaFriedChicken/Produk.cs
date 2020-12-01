@@ -166,12 +166,6 @@ namespace pbd_29_UbayaFriedChicken
                 sql = "update produk set Stok=Stok-" + jumlahTransaksi +
                     " where IdProduk='" + idProduk + "'";
             }
-            else if (jenisTransaksi == "pembelian")
-            {
-                //menambah stok produk tertentu sesuai jumlah yang terjual
-                sql = "update produk set Stok=Stok+" + jumlahTransaksi +
-                    " where IdProduk='" + idProduk + "'";
-            }
             Koneksi.JalankanPerintahDML(sql);
         }
         #endregion

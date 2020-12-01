@@ -1,4 +1,4 @@
-﻿namespace form
+﻿namespace UbayaFriedChicken_Form
 {
     partial class FormLogin
     {

@@ -32,8 +32,8 @@
             this.labelIdKategori = new System.Windows.Forms.Label();
             this.textBoxBatasMinimal = new System.Windows.Forms.TextBox();
             this.labelBatasMinimal = new System.Windows.Forms.Label();
-            this.textBoxJenisBarang = new System.Windows.Forms.TextBox();
-            this.labelJenisBarang = new System.Windows.Forms.Label();
+            this.textBoxBarang = new System.Windows.Forms.TextBox();
+            this.labelBarang = new System.Windows.Forms.Label();
             this.labelNama = new System.Windows.Forms.Label();
             this.textBoxNama = new System.Windows.Forms.TextBox();
             this.textBoxId = new System.Windows.Forms.TextBox();
@@ -50,8 +50,8 @@
             this.panel1.Controls.Add(this.labelIdKategori);
             this.panel1.Controls.Add(this.textBoxBatasMinimal);
             this.panel1.Controls.Add(this.labelBatasMinimal);
-            this.panel1.Controls.Add(this.textBoxJenisBarang);
-            this.panel1.Controls.Add(this.labelJenisBarang);
+            this.panel1.Controls.Add(this.textBoxBarang);
+            this.panel1.Controls.Add(this.labelBarang);
             this.panel1.Controls.Add(this.labelNama);
             this.panel1.Controls.Add(this.textBoxNama);
             this.panel1.Controls.Add(this.textBoxId);
@@ -93,25 +93,25 @@
             this.labelBatasMinimal.TabIndex = 29;
             this.labelBatasMinimal.Text = "Batas Minimal :";
             // 
-            // textBoxJenisBarang
+            // textBoxBarang
             // 
-            this.textBoxJenisBarang.Location = new System.Drawing.Point(136, 100);
-            this.textBoxJenisBarang.Multiline = true;
-            this.textBoxJenisBarang.Name = "textBoxJenisBarang";
-            this.textBoxJenisBarang.Size = new System.Drawing.Size(158, 28);
-            this.textBoxJenisBarang.TabIndex = 28;
+            this.textBoxBarang.Location = new System.Drawing.Point(136, 100);
+            this.textBoxBarang.Multiline = true;
+            this.textBoxBarang.Name = "textBoxBarang";
+            this.textBoxBarang.Size = new System.Drawing.Size(158, 28);
+            this.textBoxBarang.TabIndex = 28;
             // 
-            // labelJenisBarang
+            // labelBarang
             // 
-            this.labelJenisBarang.AutoSize = true;
-            this.labelJenisBarang.BackColor = System.Drawing.Color.Transparent;
-            this.labelJenisBarang.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJenisBarang.ForeColor = System.Drawing.Color.Black;
-            this.labelJenisBarang.Location = new System.Drawing.Point(36, 105);
-            this.labelJenisBarang.Name = "labelJenisBarang";
-            this.labelJenisBarang.Size = new System.Drawing.Size(99, 16);
-            this.labelJenisBarang.TabIndex = 27;
-            this.labelJenisBarang.Text = "Jenis Barang :";
+            this.labelBarang.AutoSize = true;
+            this.labelBarang.BackColor = System.Drawing.Color.Transparent;
+            this.labelBarang.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBarang.ForeColor = System.Drawing.Color.Black;
+            this.labelBarang.Location = new System.Drawing.Point(36, 105);
+            this.labelBarang.Name = "labelBarang";
+            this.labelBarang.Size = new System.Drawing.Size(63, 16);
+            this.labelBarang.TabIndex = 27;
+            this.labelBarang.Text = "Barang :";
             // 
             // labelNama
             // 
@@ -202,6 +202,7 @@
             this.Controls.Add(this.labelWarna);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonKosongi);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTambahReward";
             this.Text = "FormTambahReward";
             this.Load += new System.EventHandler(this.FormTambahReward_Load);
@@ -217,7 +218,7 @@
         private System.Windows.Forms.Label labelIdKategori;
         private System.Windows.Forms.TextBox textBoxBatasMinimal;
         private System.Windows.Forms.Label labelBatasMinimal;
-        private System.Windows.Forms.Label labelJenisBarang;
+        private System.Windows.Forms.Label labelBarang;
         private System.Windows.Forms.Label labelNama;
         private System.Windows.Forms.TextBox textBoxNama;
         private System.Windows.Forms.TextBox textBoxId;
@@ -225,6 +226,6 @@
         private System.Windows.Forms.Label labelWarna;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonKosongi;
-        private System.Windows.Forms.TextBox textBoxJenisBarang;
+        private System.Windows.Forms.TextBox textBoxBarang;
     }
 }

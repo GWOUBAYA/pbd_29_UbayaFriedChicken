@@ -65,8 +65,11 @@ namespace pbd_29_UbayaFriedChicken
         public static void JalankanPerintahDML(string sql)
         {
             Koneksi k = new Koneksi();
-            MySqlCommand c = new MySqlCommand(sql, k.KoneksiDB);
-            c.ExecuteNonQuery();
+            using (MySqlCommand c = new MySqlCommand(sql, k.KoneksiDB))
+            {
+                c.ExecuteNonQuery();
+            }
+            k.KoneksiDB.Close();
         }
         public static MySqlDataReader JalankanPerintahQuery(string sql)
         {

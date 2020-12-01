@@ -104,23 +104,5 @@
       <FileName>Reward.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="pbd_29_UbayaFriedChicken.DiskonNotaJualDetil">
-    <Position X="7.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>DiskonNotaJualDetil.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="NotaJualDetil" />
-      <Property Name="Diskon" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="pbd_29_UbayaFriedChicken.Diskon">
-    <Position X="10.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Diskon.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -1,4 +1,4 @@
-﻿namespace form
+﻿namespace UbayaFriedChicken_Form
 {
     partial class FormDaftarPromo
     {
@@ -173,6 +173,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDaftarPromo";
             this.Text = "Daftar Promo";
+            this.Load += new System.EventHandler(this.FormDaftarPromo_Load);
             this.panelWarna.ResumeLayout(false);
             this.panelWarna.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).EndInit();

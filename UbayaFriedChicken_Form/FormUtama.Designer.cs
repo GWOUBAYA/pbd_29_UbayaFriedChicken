@@ -1,4 +1,4 @@
-﻿namespace form
+﻿namespace UbayaFriedChicken_Form
 {
     partial class FormUtama
     {
@@ -40,9 +40,7 @@
             this.promoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penjualanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.keluarSistemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelKeterangan = new System.Windows.Forms.Label();
-            this.labelNamaUser = new System.Windows.Forms.Label();
+            this.laporanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kategoriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.produkToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +50,10 @@
             this.bankToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.penjualanToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.laporanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keluarSistemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelKeterangan = new System.Windows.Forms.Label();
+            this.labelNamaUser = new System.Windows.Forms.Label();
+            this.labelIDUser = new System.Windows.Forms.Label();
             this.menuStripMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +71,7 @@
             this.menuStripMenu.Size = new System.Drawing.Size(855, 24);
             this.menuStripMenu.TabIndex = 0;
             this.menuStripMenu.Text = "menuStripMaster";
+            this.menuStripMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripMenu_ItemClicked);
             // 
             // masterToolStripMenuItem
             // 
@@ -90,49 +92,49 @@
             // kategoriToolStripMenuItem
             // 
             this.kategoriToolStripMenuItem.Name = "kategoriToolStripMenuItem";
-            this.kategoriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kategoriToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.kategoriToolStripMenuItem.Text = "Kategori";
             this.kategoriToolStripMenuItem.Click += new System.EventHandler(this.kategoriToolStripMenuItem_Click);
             // 
             // produkToolStripMenuItem
             // 
             this.produkToolStripMenuItem.Name = "produkToolStripMenuItem";
-            this.produkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.produkToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.produkToolStripMenuItem.Text = "Produk";
             this.produkToolStripMenuItem.Click += new System.EventHandler(this.produkToolStripMenuItem_Click);
             // 
             // pelangganToolStripMenuItem
             // 
             this.pelangganToolStripMenuItem.Name = "pelangganToolStripMenuItem";
-            this.pelangganToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pelangganToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.pelangganToolStripMenuItem.Text = "Pelanggan";
             this.pelangganToolStripMenuItem.Click += new System.EventHandler(this.pelangganToolStripMenuItem_Click);
             // 
             // pegawaiToolStripMenuItem
             // 
             this.pegawaiToolStripMenuItem.Name = "pegawaiToolStripMenuItem";
-            this.pegawaiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pegawaiToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.pegawaiToolStripMenuItem.Text = "Pegawai";
             this.pegawaiToolStripMenuItem.Click += new System.EventHandler(this.pegawaiToolStripMenuItem_Click);
             // 
             // jabatanToolStripMenuItem
             // 
             this.jabatanToolStripMenuItem.Name = "jabatanToolStripMenuItem";
-            this.jabatanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jabatanToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.jabatanToolStripMenuItem.Text = "Jabatan";
             this.jabatanToolStripMenuItem.Click += new System.EventHandler(this.jabatanToolStripMenuItem_Click);
             // 
             // bankToolStripMenuItem
             // 
             this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
-            this.bankToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bankToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.bankToolStripMenuItem.Text = "Bank";
             this.bankToolStripMenuItem.Click += new System.EventHandler(this.bankToolStripMenuItem_Click);
             // 
             // promoToolStripMenuItem
             // 
             this.promoToolStripMenuItem.Name = "promoToolStripMenuItem";
-            this.promoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.promoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.promoToolStripMenuItem.Text = "Reward";
             this.promoToolStripMenuItem.Click += new System.EventHandler(this.promoToolStripMenuItem_Click);
             // 
@@ -150,36 +152,17 @@
             this.penjualanToolStripMenuItem.Name = "penjualanToolStripMenuItem";
             this.penjualanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.penjualanToolStripMenuItem.Text = "Penjualan";
+            this.penjualanToolStripMenuItem.Click += new System.EventHandler(this.penjualanToolStripMenuItem_Click);
             // 
-            // keluarSistemToolStripMenuItem
+            // laporanToolStripMenuItem
             // 
-            this.keluarSistemToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.keluarSistemToolStripMenuItem.Name = "keluarSistemToolStripMenuItem";
-            this.keluarSistemToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.keluarSistemToolStripMenuItem.Text = "Keluar Sistem";
-            this.keluarSistemToolStripMenuItem.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem_Click);
-            // 
-            // labelKeterangan
-            // 
-            this.labelKeterangan.AutoSize = true;
-            this.labelKeterangan.BackColor = System.Drawing.Color.White;
-            this.labelKeterangan.ForeColor = System.Drawing.Color.Red;
-            this.labelKeterangan.Location = new System.Drawing.Point(619, 9);
-            this.labelKeterangan.Name = "labelKeterangan";
-            this.labelKeterangan.Size = new System.Drawing.Size(107, 13);
-            this.labelKeterangan.TabIndex = 1;
-            this.labelKeterangan.Text = "Anda Login sebagai :";
-            // 
-            // labelNamaUser
-            // 
-            this.labelNamaUser.AutoSize = true;
-            this.labelNamaUser.BackColor = System.Drawing.Color.White;
-            this.labelNamaUser.ForeColor = System.Drawing.Color.Red;
-            this.labelNamaUser.Location = new System.Drawing.Point(732, 9);
-            this.labelNamaUser.Name = "labelNamaUser";
-            this.labelNamaUser.Size = new System.Drawing.Size(60, 13);
-            this.labelNamaUser.TabIndex = 2;
-            this.labelNamaUser.Text = "Nama User";
+            this.laporanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.masterToolStripMenuItem1,
+            this.transaksiToolStripMenuItem1});
+            this.laporanToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.laporanToolStripMenuItem.Name = "laporanToolStripMenuItem";
+            this.laporanToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.laporanToolStripMenuItem.Text = "Laporan";
             // 
             // masterToolStripMenuItem1
             // 
@@ -191,7 +174,7 @@
             this.jabatanToolStripMenuItem1,
             this.bankToolStripMenuItem1});
             this.masterToolStripMenuItem1.Name = "masterToolStripMenuItem1";
-            this.masterToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.masterToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.masterToolStripMenuItem1.Text = "Master";
             // 
             // kategoriToolStripMenuItem1
@@ -235,7 +218,7 @@
             this.transaksiToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.penjualanToolStripMenuItem1});
             this.transaksiToolStripMenuItem1.Name = "transaksiToolStripMenuItem1";
-            this.transaksiToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.transaksiToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.transaksiToolStripMenuItem1.Text = "Transaksi";
             // 
             // penjualanToolStripMenuItem1
@@ -244,15 +227,46 @@
             this.penjualanToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.penjualanToolStripMenuItem1.Text = "Penjualan";
             // 
-            // laporanToolStripMenuItem
+            // keluarSistemToolStripMenuItem
             // 
-            this.laporanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.masterToolStripMenuItem1,
-            this.transaksiToolStripMenuItem1});
-            this.laporanToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.laporanToolStripMenuItem.Name = "laporanToolStripMenuItem";
-            this.laporanToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.laporanToolStripMenuItem.Text = "Laporan";
+            this.keluarSistemToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.keluarSistemToolStripMenuItem.Name = "keluarSistemToolStripMenuItem";
+            this.keluarSistemToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.keluarSistemToolStripMenuItem.Text = "Keluar Sistem";
+            this.keluarSistemToolStripMenuItem.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem_Click);
+            // 
+            // labelKeterangan
+            // 
+            this.labelKeterangan.AutoSize = true;
+            this.labelKeterangan.BackColor = System.Drawing.Color.White;
+            this.labelKeterangan.ForeColor = System.Drawing.Color.Red;
+            this.labelKeterangan.Location = new System.Drawing.Point(572, 9);
+            this.labelKeterangan.Name = "labelKeterangan";
+            this.labelKeterangan.Size = new System.Drawing.Size(107, 13);
+            this.labelKeterangan.TabIndex = 1;
+            this.labelKeterangan.Text = "Anda Login sebagai :";
+            // 
+            // labelNamaUser
+            // 
+            this.labelNamaUser.AutoSize = true;
+            this.labelNamaUser.BackColor = System.Drawing.Color.White;
+            this.labelNamaUser.ForeColor = System.Drawing.Color.Red;
+            this.labelNamaUser.Location = new System.Drawing.Point(732, 9);
+            this.labelNamaUser.Name = "labelNamaUser";
+            this.labelNamaUser.Size = new System.Drawing.Size(60, 13);
+            this.labelNamaUser.TabIndex = 2;
+            this.labelNamaUser.Text = "Nama User";
+            // 
+            // labelIDUser
+            // 
+            this.labelIDUser.AutoSize = true;
+            this.labelIDUser.BackColor = System.Drawing.Color.White;
+            this.labelIDUser.ForeColor = System.Drawing.Color.Red;
+            this.labelIDUser.Location = new System.Drawing.Point(685, 9);
+            this.labelIDUser.Name = "labelIDUser";
+            this.labelIDUser.Size = new System.Drawing.Size(41, 13);
+            this.labelIDUser.TabIndex = 4;
+            this.labelIDUser.Text = "Id User";
             // 
             // FormUtama
             // 
@@ -262,6 +276,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(855, 456);
+            this.Controls.Add(this.labelIDUser);
             this.Controls.Add(this.labelNamaUser);
             this.Controls.Add(this.labelKeterangan);
             this.Controls.Add(this.menuStripMenu);
@@ -294,7 +309,6 @@
         private System.Windows.Forms.ToolStripMenuItem penjualanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem;
         private System.Windows.Forms.Label labelKeterangan;
-        private System.Windows.Forms.Label labelNamaUser;
         private System.Windows.Forms.ToolStripMenuItem promoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem laporanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem masterToolStripMenuItem1;
@@ -306,6 +320,8 @@
         private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem penjualanToolStripMenuItem1;
+        public System.Windows.Forms.Label labelIDUser;
+        public System.Windows.Forms.Label labelNamaUser;
     }
 }
 

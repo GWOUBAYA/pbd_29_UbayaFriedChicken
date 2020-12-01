@@ -22,9 +22,11 @@ namespace UbayaFriedChicken_Form
         {
             try
             {
-                Reward r = new Reward(textBoxId.Text, textBoxNama.Text, textBoxJenisBarang.Text, int.Parse(textBoxBatasMinimal.Text));
+                Reward r = new Reward(textBoxId.Text, textBoxNama.Text, textBoxBarang.Text, int.Parse(textBoxBatasMinimal.Text));
                 Reward.TambahData(r);
                 MessageBox.Show("Data reward telah tersimpan.", "Info");
+                buttonKosongi_Click(buttonSimpan, e);
+                FormTambahReward_Load(buttonSimpan, e);
             }
             catch (Exception exc)
             {
@@ -36,7 +38,7 @@ namespace UbayaFriedChicken_Form
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
             textBoxNama.Text = "";
-            textBoxJenisBarang.Text = "";
+            textBoxBarang.Text = "";
             textBoxBatasMinimal.Text = "";    
         }
 

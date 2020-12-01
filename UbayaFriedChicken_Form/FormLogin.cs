@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormLogin : Form
     {
@@ -17,7 +17,7 @@ namespace form
         {
             InitializeComponent();
         }
-
+        List<Pegawai> listPegawai;
         private void FormLogin_Load(object sender, EventArgs e)
         {
             this.Height = panelLogin.Height;
@@ -40,10 +40,18 @@ namespace form
 
                         Koneksi koneksi = new Koneksi(server, database, user, pass);
                         MessageBox.Show("Koneksi berhasil. Selamat menggunakan aplikasi", "Informasi");
-
+                        listPegawai = Pegawai.BacaData("username", textBoxUsername.Text);
                         FormUtama formUtama = (FormUtama)this.Owner;
                         formUtama.Enabled = true;
                         formUtama.ubahNama(textBoxUsername.Text);
+                        if (listPegawai.Count > 0)
+                        {
+                            formUtama.labelIDUser.Text = listPegawai[0].IdPegawai.ToString();
+                            formUtama.labelNamaUser.Text = listPegawai[0].Nama;
+                            formUtama.PengaturanHakAksesMenus(listPegawai[0].Jabatan);
+                            formUtama.login = listPegawai[0];
+                        }
+                       
 
                         
                         

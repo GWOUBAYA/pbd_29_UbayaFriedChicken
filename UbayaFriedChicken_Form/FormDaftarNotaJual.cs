@@ -29,7 +29,7 @@ namespace UbayaFriedChicken_Form
             this.Enabled = false;
         }
 
-        private void FormDaftarNotaJual_Load(object sender, EventArgs e)
+       public void FormDaftarNotaJual_Load(object sender, EventArgs e)
         {
             //panggil method untuk menambah kolom pada datagridview
             FormatDataGrid();
@@ -58,6 +58,7 @@ namespace UbayaFriedChicken_Form
             dataGridViewData.Columns.Add("NamaProduk", "Nama Produk");
             dataGridViewData.Columns.Add("Harga", "Harga");
             dataGridViewData.Columns.Add("Jumlah", "Jumlah");
+            dataGridViewData.Columns.Add("IdReward", "Id Reward");
 
             dataGridViewData.Columns["IdNota"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["Tanggal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -70,6 +71,7 @@ namespace UbayaFriedChicken_Form
             dataGridViewData.Columns["NamaProduk"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["Harga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["Jumlah"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["IdReward"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             //agar harga dan jumlah rata kanan
             dataGridViewData.Columns["Harga"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -91,13 +93,15 @@ namespace UbayaFriedChicken_Form
             //jika listNotaJual terisi data
             if (listNotaJual.Count > 0)
             {
-                //tampilkan semua isi listNotaJual di datagridview
                 foreach (NotaJual n in listNotaJual)
                 {
-                    foreach (NotaJualDetil njd in n.ListNotaJualDetil)
+                    foreach(NotaJualDetil njd in n.ListNotaJualDetil)
                     {
-                        dataGridViewData.Rows.Add(n.IdNota, n.Tanggal, n.Pelanggan.IdPelanggan, n.Pelanggan.Nama, n.Pelanggan.Alamat,
-                                                    n.Pegawai.IdPegawai, n.Pegawai.Nama, njd.Produk.IdProduk, njd.Produk.Nama, njd.Harga, njd.Jumlah);
+                        foreach (RewardNotaJual njr in n.ListRewardNotaJual)
+                        {
+                            dataGridViewData.Rows.Add(n.IdNota, n.Tanggal, n.Pelanggan.IdPelanggan, n.Pelanggan.Nama, n.Pelanggan.Alamat,
+                                n.Pegawai.IdPegawai, n.Pegawai.Nama, njd.Produk.IdProduk, njd.Produk.Nama, njd.Harga, njd.Jumlah, njr.Reward.IdReward);
+                        }
                     }
                 }
             }
@@ -142,24 +146,6 @@ namespace UbayaFriedChicken_Form
             {
                 kriteria = " p.Nama";
             }
-            /*
-            else if (comboBoxCari.Text == "Kode Barang")
-            {
-                kriteria = "njd.KodeBarang";
-            }
-            else if (comboBoxCari.Text == "Nama Barang")
-            {
-                kriteria = "b.Nama";
-            }
-            else if (comboBoxCari.Text == "Harga")
-            {
-                kriteria = "njd.Harga";
-            }
-            else if (comboBoxCari.Text == "Jumlah")
-            {
-                kriteria = "njd.Jumlah";
-            }
-            */
             listNotaJual = NotaJual.BacaData(kriteria, textBoxCari.Text);
             TampilDataGrid();
         }
@@ -169,11 +155,6 @@ namespace UbayaFriedChicken_Form
             //cetak nota jual yang memenuhi kriteria pencarian user
             //simpan di file dengan nama daftar nota jual txt
             NotaJual.CetakNota(kriteria, textBoxCari.Text, "daftar_nota_jual.txt", new Font("Courier New", 12));
-        }
-
-        private void FormDaftarNotaJual_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

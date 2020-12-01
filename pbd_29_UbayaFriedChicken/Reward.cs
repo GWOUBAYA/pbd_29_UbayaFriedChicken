@@ -11,16 +11,16 @@ namespace pbd_29_UbayaFriedChicken
         #region reward
         private string idReward;
         private string nama;
-        private string jenis_barang;
+        private string barang;
         private int batas_minimal;
         #endregion
 
         #region constructor
-        public Reward(string idReward, string nama, string jenis_barang, int batas_minimal)
+        public Reward(string idReward, string nama, string barang, int batas_minimal)
         {
             this.IdReward = idReward;
             this.Nama = nama;
-            this.Jenis_barang = jenis_barang;
+            this.Barang = barang;
             this.Batas_minimal = batas_minimal;
         }
         #endregion
@@ -32,29 +32,11 @@ namespace pbd_29_UbayaFriedChicken
             get => nama;
             set
             {
-                bool detect = true;
-                foreach (char c in value)
-                {
-                    if (c < '0' || c > '9')
-                        detect = false;
-                    else
-                    {
-                        detect = true;
-                        break;
-                    }
-                }
-                if (detect == false && value != "")
-                {
                     nama = value;
-                }
-                else
-                {
-                    throw (new Exception("Nama harus berupa huruf dan tidak boleh kosong"));
-                }
             }
         }
 
-        public string Jenis_barang { get => jenis_barang; set => jenis_barang = value; }
+        public string Barang { get => barang; set => barang = value; }
         public int Batas_minimal
         {
             get => batas_minimal;
@@ -76,13 +58,13 @@ namespace pbd_29_UbayaFriedChicken
         #region method
         public static void TambahData(Reward r)
         {
-            string sql = "Insert into Reward(IdReward, nama, jenis_barang, batas_minimal) values('" + r.idReward + "','" + r.Nama.Replace("\\'", "") + "','" + r.Jenis_barang + "','" + r.Batas_minimal + "')";
+            string sql = "Insert into Reward(IdReward, nama, barang, batas_minimal) values('" + r.idReward + "','" + r.Nama.Replace("\\'", "") + "','" + r.Barang.Replace("\\'", "") + "','" + r.Batas_minimal + "')";
             Koneksi.JalankanPerintahDML(sql);
         }
 
         public static void UbahData(Reward r)
         {
-            string sql = "Update Reward set Nama='" + r.Nama.Replace("\\'", "") + "', jenis_barang='" + r.Jenis_barang + "', batas_minimal='" + r.Batas_minimal + "' where IdReward='" + r.IdReward + "'";
+            string sql = "Update Reward set Nama='" + r.Nama.Replace("\\'", "") + "', barang='" + r.Barang.Replace("\\'", "") + "', batas_minimal='" + r.Batas_minimal + "' where IdReward='" + r.IdReward + "'";
             Koneksi.JalankanPerintahDML(sql);
         }
 
@@ -96,12 +78,12 @@ namespace pbd_29_UbayaFriedChicken
             string sql = "";
             if (k == "")
             {
-                sql = "select IdReward, nama as 'Nama Reward', jenis_barang as 'Jenis Barang', batas_minimal as 'Batas Minimal'" +
+                sql = "select IdReward, nama as 'Nama Reward', barang as 'Barang', batas_minimal as 'Batas Minimal'" +
                     " from reward";
             }
             else
             {
-                sql = "select IdReward, nama as 'Nama Reward', jenis_barang as 'Jenis Barang', batas_minimal as 'Batas Minimal'" +
+                sql = "select IdReward, nama as 'Nama Reward', barang as 'Barang', batas_minimal as 'Batas Minimal'" +
                     " from reward where " + k + " like '%" + nk + "%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
@@ -121,13 +103,17 @@ namespace pbd_29_UbayaFriedChicken
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             if (hasil.Read() == true)
             {
-                int kodebaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
-                hasilkode = kodebaru.ToString().PadLeft(2, '0');
+                if (hasil.GetValue(0).ToString() != "")
+                {
+                    int kodebaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
+                    hasilkode = kodebaru.ToString().PadLeft(2, '0');
+                }
+                else
+                {
+                    hasilkode = "01";
+                }
             }
-            else
-            {
-                hasilkode = "01";
-            }
+            
             return hasilkode;
         }
         #endregion

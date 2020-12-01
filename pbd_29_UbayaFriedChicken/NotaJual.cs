@@ -12,13 +12,16 @@ namespace pbd_29_UbayaFriedChicken
 {
     public class NotaJual
     {
+        #region Fields
         private string idNota;
         private DateTime tanggal;
         private Pegawai pegawai;
         private Pelanggan pelanggan;
         private List<NotaJualDetil> listNotaJualDetil;
         private List<RewardNotaJual> listRewardNotaJual;
+        #endregion
 
+        #region Constructor
         public NotaJual(string idNota, DateTime tanggal, Pelanggan pelanggan, Pegawai pegawai)
         {
             this.IdNota = idNota;
@@ -28,13 +31,16 @@ namespace pbd_29_UbayaFriedChicken
             this.ListNotaJualDetil = new List<NotaJualDetil>();
             this.ListRewardNotaJual = new List<RewardNotaJual>();
         }
+        #endregion
 
+        #region Properties
         public string IdNota { get => idNota; set => idNota = value; }
         public DateTime Tanggal { get => tanggal; set => tanggal = value; }
         public Pegawai Pegawai { get => pegawai; set => pegawai = value; }
         public Pelanggan Pelanggan { get => pelanggan; set => pelanggan = value; }
         public List<NotaJualDetil> ListNotaJualDetil { get => listNotaJualDetil;private set => listNotaJualDetil = value; }
         public List<RewardNotaJual> ListRewardNotaJual { get => listRewardNotaJual; private set => listRewardNotaJual = value; }
+        #endregion
 
         #region Methods
         //menambahkan detil produk dalam nota jual
@@ -57,10 +63,12 @@ namespace pbd_29_UbayaFriedChicken
             {
                 try
                 {
+                    string entrysql = "SET FOREIGN_KEY_CHECKS=0";
+                    Koneksi.JalankanPerintahDML(entrysql);
                     //menambahkan data nota jual
-                    string sql1 = "insert into NotaJual(IdNota,Tanggal,IdPelanggan,IdPegawai) values ('" + nota.IdNota +
-                        "','" + nota.Tanggal.ToString("yyyy-MM-dd hh:mm:ss") + "','" + nota.Pelanggan.IdPelanggan + "','" +
-                        nota.Pegawai.IdPegawai + "')";
+                    string sql1 = "insert into NotaJual(IdNota,Tanggal,IdPegawai,IdPelanggan) values ('" + nota.IdNota +
+                        "','" + nota.Tanggal.ToString("yyyy-MM-dd hh:mm:ss") + "','" + nota.Pegawai.IdPegawai + "','" +
+                        nota.Pelanggan.IdPelanggan + "')";
                     Koneksi.JalankanPerintahDML(sql1);
 
                     foreach (NotaJualDetil notaJualDetil in nota.ListNotaJualDetil)
@@ -73,8 +81,17 @@ namespace pbd_29_UbayaFriedChicken
                         //update stock dari produk dalam nota jual
                         Produk.UpdateStock("penjualan", notaJualDetil.Produk.IdProduk, notaJualDetil.Jumlah);
                     }
+                    foreach (RewardNotaJual rewardNotaJual in nota.ListRewardNotaJual)
+                    {
+                        //menambahkan detil produk dalam nota jual
+                        string sql3 = "insert into NotaJualReward(IdReward,IdNota) values ('" + rewardNotaJual.Reward.IdReward +
+                            "','" + nota.IdNota  + "')";
+                        Koneksi.JalankanPerintahDML(sql3);
+                    }
                     //jika semua semua perintah dml berhasil dalam transScope 
                     transScope.Complete(); //simpan semua data secara permanent
+                    string exitsql = "SET FOREIGN_KEY_CHECKS=1";
+                    Koneksi.JalankanPerintahDML(exitsql);
                 }
                 catch (Exception exc)
                 {
@@ -84,6 +101,8 @@ namespace pbd_29_UbayaFriedChicken
                 }
             }
         }
+       
+        
 
         //untuk generate nomor nota baru
         public static string GenerateIdNota()
@@ -265,7 +284,7 @@ namespace pbd_29_UbayaFriedChicken
                 foreach (RewardNotaJual njr in nota.ListRewardNotaJual)
                 {
                     string nama = njr.Reward.Nama;
-                    string jenis_barang = njr.Reward.Jenis_barang;
+                    string barang = njr.Reward.Barang;
                     
                     //jika nama terlalu panjang maka hanya tapilkan 30 karakter pertama saja
                     if (nama.Length > 30)
@@ -273,7 +292,7 @@ namespace pbd_29_UbayaFriedChicken
                         nama = nama.Substring(0, 30);
                     }            
                     file.Write(nama.PadRight(30, ' '));
-                    file.Write(jenis_barang);
+                    file.Write(barang);
                     file.WriteLine("");         
                 }
                 file.WriteLine("=".PadRight(50, '='));

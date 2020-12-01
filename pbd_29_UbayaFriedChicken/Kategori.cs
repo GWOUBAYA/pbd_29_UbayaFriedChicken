@@ -112,12 +112,15 @@ namespace pbd_29_UbayaFriedChicken
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             if (hasil.Read() == true)
             {
-                int kodebaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
-                hasilkode = kodebaru.ToString().PadLeft(2, '0');
-            }
-            else
-            {
-                hasilkode = "01";
+                if (hasil.GetValue(0).ToString() != "")
+                {
+                    int kodebaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
+                    hasilkode = kodebaru.ToString().PadLeft(2, '0');
+                }
+                else
+                {
+                    hasilkode = "01";
+                }
             }
             return hasilkode;
         }

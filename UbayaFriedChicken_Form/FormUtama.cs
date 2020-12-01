@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pbd_29_UbayaFriedChicken;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormUtama : Form
     {
@@ -16,7 +17,8 @@ namespace form
         {
             InitializeComponent();
         }
-        
+        public Pegawai login;
+
         public void ubahNama(string nama)
         {
             labelNamaUser.Text = nama;
@@ -44,11 +46,21 @@ namespace form
             FormLogin formLogin = new FormLogin();
             formLogin.Owner = this; //bukan termasuk midChild
             formLogin.Show();
-            
+        }
+        public void PengaturanHakAksesMenus(Jabatan j)
+        {
+            if (j.IdJabatan == "J1")
+            {
+                
+            }
+            else if (j.IdJabatan == "J2")
+            {
+               
+            }
+            else if (j.IdJabatan == "J3")
+            {
 
-
-
-
+            }
         }
 
         private void kategoriToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,7 +163,18 @@ namespace form
 
         private void promoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form form = Application.OpenForms["FormDaftarReward"];
+            if (form == null)
+            {
+                FormDaftarReward formDaftarReward = new FormDaftarReward();
+                formDaftarReward.MdiParent = this;
+                formDaftarReward.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
         }
 
         private void keluarSistemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,6 +190,27 @@ namespace form
         private void masterToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
         {
             menuStripMenu.ForeColor = Color.White;
+        }
+
+        private void penjualanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarNotaJual"];
+            if (form == null)
+            {
+                FormDaftarNotaJual formDaftarNotaJual = new FormDaftarNotaJual();
+                formDaftarNotaJual.MdiParent = this;
+                formDaftarNotaJual.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void menuStripMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

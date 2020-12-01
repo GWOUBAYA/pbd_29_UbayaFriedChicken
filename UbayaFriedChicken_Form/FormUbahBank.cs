@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormUbahBank : Form
     {
@@ -66,6 +66,11 @@ namespace form
             {
                 textBoxNama.Text = listBank[0].Nama;
             }
+        }
+
+        private void FormUbahBank_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

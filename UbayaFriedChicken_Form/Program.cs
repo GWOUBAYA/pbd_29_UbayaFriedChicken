@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     static class Program
     {

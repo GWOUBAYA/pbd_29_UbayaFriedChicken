@@ -175,7 +175,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDaftarNotaJual";
             this.Text = "Daftar Nota Jual";
-            this.Load += new System.EventHandler(this.FormDaftarNotaJual_Load_1);
+            this.Load += new System.EventHandler(this.FormDaftarNotaJual_Load);
             this.panelWarna.ResumeLayout(false);
             this.panelWarna.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).EndInit();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbd_29_UbayaFriedChicken;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormDaftarPegawai : Form
     {

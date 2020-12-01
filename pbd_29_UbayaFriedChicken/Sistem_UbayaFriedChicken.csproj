@@ -50,8 +50,6 @@
   <ItemGroup>
     <Compile Include="Bank.cs" />
     <Compile Include="Cetak.cs" />
-    <Compile Include="Diskon.cs" />
-    <Compile Include="DiskonNotaJualDetil.cs" />
     <Compile Include="Jabatan.cs" />
     <Compile Include="NotaJualDetil.cs" />
     <Compile Include="NotaJual.cs" />

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormDaftarKategori : Form
     {

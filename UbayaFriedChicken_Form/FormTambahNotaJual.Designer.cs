@@ -42,9 +42,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.labelNamaProduk = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.labelIdProduk = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxBarcode = new System.Windows.Forms.TextBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.labelGrandTotal = new System.Windows.Forms.Label();
             this.labelIdPegawai = new System.Windows.Forms.Label();
@@ -71,6 +69,7 @@
             this.buttonKeluar.TabIndex = 62;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonCetak
             // 
@@ -83,6 +82,7 @@
             this.buttonCetak.TabIndex = 61;
             this.buttonCetak.Text = "CETAK";
             this.buttonCetak.UseVisualStyleBackColor = false;
+            this.buttonCetak.Click += new System.EventHandler(this.buttonCetak_Click);
             // 
             // buttonTambah
             // 
@@ -95,6 +95,7 @@
             this.buttonTambah.TabIndex = 60;
             this.buttonTambah.Text = "SIMPAN";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // labelWarna
             // 
@@ -120,9 +121,7 @@
             this.panelLogin.Controls.Add(this.label11);
             this.panelLogin.Controls.Add(this.labelNamaProduk);
             this.panelLogin.Controls.Add(this.label9);
-            this.panelLogin.Controls.Add(this.labelIdProduk);
-            this.panelLogin.Controls.Add(this.label7);
-            this.panelLogin.Controls.Add(this.textBoxBarcode);
+            this.panelLogin.Controls.Add(this.textBoxId);
             this.panelLogin.Controls.Add(this.label6);
             this.panelLogin.Controls.Add(this.labelGrandTotal);
             this.panelLogin.Controls.Add(this.labelIdPegawai);
@@ -175,6 +174,7 @@
             this.textBoxJumlah.Size = new System.Drawing.Size(57, 23);
             this.textBoxJumlah.TabIndex = 59;
             this.textBoxJumlah.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxJumlah.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxJumlah_KeyDown);
             // 
             // label10
             // 
@@ -214,9 +214,9 @@
             this.labelNamaProduk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelNamaProduk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNamaProduk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelNamaProduk.Location = new System.Drawing.Point(222, 205);
+            this.labelNamaProduk.Location = new System.Drawing.Point(105, 205);
             this.labelNamaProduk.Name = "labelNamaProduk";
-            this.labelNamaProduk.Size = new System.Drawing.Size(273, 23);
+            this.labelNamaProduk.Size = new System.Drawing.Size(390, 23);
             this.labelNamaProduk.TabIndex = 55;
             this.labelNamaProduk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -230,45 +230,24 @@
             this.label9.TabIndex = 54;
             this.label9.Text = "Nama Produk";
             // 
-            // labelIdProduk
+            // textBoxId
             // 
-            this.labelIdProduk.BackColor = System.Drawing.Color.Gainsboro;
-            this.labelIdProduk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelIdProduk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIdProduk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelIdProduk.Location = new System.Drawing.Point(123, 205);
-            this.labelIdProduk.Name = "labelIdProduk";
-            this.labelIdProduk.Size = new System.Drawing.Size(100, 23);
-            this.labelIdProduk.TabIndex = 52;
-            this.labelIdProduk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(154, 186);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 16);
-            this.label7.TabIndex = 51;
-            this.label7.Text = "Id";
-            // 
-            // textBoxBarcode
-            // 
-            this.textBoxBarcode.Location = new System.Drawing.Point(17, 205);
-            this.textBoxBarcode.Multiline = true;
-            this.textBoxBarcode.Name = "textBoxBarcode";
-            this.textBoxBarcode.Size = new System.Drawing.Size(107, 23);
-            this.textBoxBarcode.TabIndex = 50;
+            this.textBoxId.Location = new System.Drawing.Point(17, 205);
+            this.textBoxId.Multiline = true;
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(92, 23);
+            this.textBoxId.TabIndex = 50;
+            this.textBoxId.TextChanged += new System.EventHandler(this.textBoxBarcode_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(38, 186);
+            this.label6.Location = new System.Drawing.Point(14, 186);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.Size = new System.Drawing.Size(70, 16);
             this.label6.TabIndex = 49;
-            this.label6.Text = "Barcode";
+            this.label6.Text = "Id Produk";
             // 
             // labelGrandTotal
             // 
@@ -308,6 +287,7 @@
             this.comboBoxPelanggan.Name = "comboBoxPelanggan";
             this.comboBoxPelanggan.Size = new System.Drawing.Size(245, 21);
             this.comboBoxPelanggan.TabIndex = 44;
+            this.comboBoxPelanggan.SelectedIndexChanged += new System.EventHandler(this.comboBoxPelanggan_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -378,6 +358,7 @@
             this.Controls.Add(this.panelLogin);
             this.Name = "FormTambahNotaJual";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormTambahNotaJual_Load);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduk)).EndInit();
@@ -401,9 +382,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelNamaProduk;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label labelIdProduk;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxBarcode;
+        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelGrandTotal;
         private System.Windows.Forms.Label labelIdPegawai;

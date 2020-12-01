@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbd_29_UbayaFriedChicken;
 
-namespace form
-{
+namespace UbayaFriedChicken_Form
+{ 
     public partial class FormHapusPegawai : Form
     {
         List<Pegawai> listPegawai = new List<Pegawai>();

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormDaftarTopUp : Form
     {
@@ -23,6 +23,11 @@ namespace form
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormDaftarTopUp_Load(object sender, EventArgs e)
         {
 
         }

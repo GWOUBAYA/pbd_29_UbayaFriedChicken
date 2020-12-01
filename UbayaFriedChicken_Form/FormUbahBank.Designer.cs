@@ -1,4 +1,4 @@
-﻿namespace form
+﻿namespace UbayaFriedChicken_Form
 {
     partial class FormUbahBank
     {
@@ -158,6 +158,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormUbahBank";
             this.Text = "Ubah Bank";
+            this.Load += new System.EventHandler(this.FormUbahBank_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

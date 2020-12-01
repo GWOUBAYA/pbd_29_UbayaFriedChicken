@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace form
+namespace UbayaFriedChicken_Form
 {
     public partial class FormDaftarPromo : Form
     {
@@ -23,6 +23,11 @@ namespace form
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormDaftarPromo_Load(object sender, EventArgs e)
         {
 
         }

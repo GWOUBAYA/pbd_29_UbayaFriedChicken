@@ -61,12 +61,12 @@ namespace UbayaFriedChicken_Form
             //parameter 1 nama kolom, parameter 2 nama yang muncul
             dataGridViewData.Columns.Add("IdReward", "ID Reward");
             dataGridViewData.Columns.Add("nama", "Nama");
-            dataGridViewData.Columns.Add("jenis_Barang", "Jenis Barang");
+            dataGridViewData.Columns.Add("Barang", "Barang");
             dataGridViewData.Columns.Add("batas_minimal", "Stok");
            
-            dataGridViewData.Columns["IdProduk"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["IdReward"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewData.Columns["jenis_barang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["barang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["batas_minimal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             
             dataGridViewData.Columns["batas_minimal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -81,7 +81,7 @@ namespace UbayaFriedChicken_Form
                 foreach (Reward r in listReward)
                 {
                     dataGridViewData.Rows.Add(r.IdReward, r.Nama,
-                        r.Jenis_barang, r.Batas_minimal);
+                        r.Barang, r.Batas_minimal);
                 }
             }
             else
@@ -102,9 +102,9 @@ namespace UbayaFriedChicken_Form
             {
                 kriteria = "nama";
             }
-            else if (comboBoxCari.Text == "Jenis Barang")
+            else if (comboBoxCari.Text == "Barang")
             {
-                kriteria = "jenis_barang";
+                kriteria = "barang";
             }
             else if (comboBoxCari.Text == "Batas Minimal")
             {

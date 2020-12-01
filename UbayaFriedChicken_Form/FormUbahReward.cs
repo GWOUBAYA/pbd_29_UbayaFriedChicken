@@ -23,7 +23,7 @@ namespace UbayaFriedChicken_Form
         {
             try
             {
-                Reward r = new Reward(textBoxId.Text, textBoxNama.Text,textBoxJenisBarang.Text , int.Parse(textBoxBatasMinimal.Text));
+                Reward r = new Reward(textBoxId.Text, textBoxNama.Text,textBoxBarang.Text , int.Parse(textBoxBatasMinimal.Text));
 
                 Reward.UbahData(r);
 
@@ -38,7 +38,7 @@ namespace UbayaFriedChicken_Form
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
              textBoxNama.Text = "";
-            textBoxJenisBarang.Text = "";
+            textBoxBarang.Text = "";
             textBoxBatasMinimal.Text = "";
             textBoxId.Text = "";
             textBoxId.Focus();
@@ -65,7 +65,7 @@ namespace UbayaFriedChicken_Form
                 if (listReward.Count > 0)
                 {
                     textBoxNama.Text = listReward[0].Nama;
-                    textBoxJenisBarang.Text = listReward[0].Jenis_barang;
+                    textBoxBarang.Text = listReward[0].Barang;
                     textBoxBatasMinimal.Text = listReward[0].Batas_minimal.ToString();
                     textBoxNama.Focus();
                 }

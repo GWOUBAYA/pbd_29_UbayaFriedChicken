@@ -1,4 +1,4 @@
-﻿namespace form
+﻿namespace UbayaFriedChicken_Form
 {
     partial class FormDaftarTopUp
     {
@@ -174,6 +174,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDaftarTopUp";
             this.Text = "Daftar Transaksi";
+            this.Load += new System.EventHandler(this.FormDaftarTopUp_Load);
             this.panelWarna.ResumeLayout(false);
             this.panelWarna.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).EndInit();
